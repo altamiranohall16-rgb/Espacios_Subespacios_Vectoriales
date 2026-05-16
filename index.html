@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VectorLab 3D | Espacios y Subespacios Vectoriales</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="noise"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+
+  <header class="topbar">
+    <div class="brand"><span class="logo">∑</span> VectorLab 3D</div>
+    <nav>
+      <a href="#resumen">Resumen</a>
+      <a href="#cards">Tarjetas</a>
+      <a href="#simulador">Simulador</a>
+      <a href="#ejercicios">Ejercicios</a>
+      <a href="#quiz1">Quiz 1</a>
+      <a href="#quiz2">Quiz 2</a>
+      <a href="#practica">Práctica</a>
+      <a href="#video">Video</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section reveal">
+      <div class="hero-text">
+        <p class="eyebrow">Álgebra Lineal · Recurso interactivo con IA</p>
+        <h1>Espacios Vectoriales y Subespacios en una experiencia 3D</h1>
+        <p class="lead">
+          Explora vectores, combinaciones lineales, subespacios y propiedades de forma visual,
+          dinámica e interactiva.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#simulador">Explorar simulador</a>
+          <a class="btn ghost" href="#practica">Practicar en plataforma</a>
+        </div>
+      </div>
+
+      <div class="cube-scene" aria-label="Animación 3D de cubo vectorial">
+        <div class="cube">
+          <div class="face front">V</div>
+          <div class="face back">W</div>
+          <div class="face right">u</div>
+          <div class="face left">v</div>
+          <div class="face top">α</div>
+          <div class="face bottom">β</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resumen" class="section reveal glass-block">
+      <div class="section-title">
+        <p class="eyebrow">Resumen breve</p>
+        <h2>¿Qué son los espacios y subespacios vectoriales?</h2>
+      </div>
+
+      <div class="summary-grid">
+        <article>
+          <h3>Espacio vectorial</h3>
+          <p>
+            Es un conjunto de vectores donde se pueden sumar vectores y multiplicarlos por escalares.
+            Para que sea un espacio vectorial debe cumplir propiedades como cierre, asociatividad,
+            existencia del vector cero, inverso aditivo y distributividad.
+          </p>
+        </article>
+
+        <article>
+          <h3>Subespacio vectorial</h3>
+          <p>
+            Es un subconjunto de un espacio vectorial que también conserva estructura vectorial.
+            Para verificarlo se comprueba que contenga al vector cero, sea cerrado bajo suma
+            y sea cerrado bajo multiplicación por escalares.
+          </p>
+        </article>
+
+        <article>
+          <h3>Idea clave</h3>
+          <p>
+            Un conjunto no es subespacio solo por tener vectores. Debe mantenerse dentro del mismo
+            conjunto después de sumar vectores o multiplicarlos por cualquier escalar.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="cards" class="section reveal">
+      <div class="section-title center">
+        <p class="eyebrow">Tarjetas didácticas</p>
+        <h2>Conceptos que se desplazan en 3D</h2>
+      </div>
+
+      <div class="card-track" id="cardTrack">
+        <article class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <h3>Vector</h3>
+              <p>Elemento que puede representar dirección, magnitud o una posición dentro de un espacio.</p>
+            </div>
+            <div class="flip-back">
+              <p>Ejemplo: en R², el vector (2, -1) tiene dos componentes.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <h3>Cierre</h3>
+              <p>Una operación no debe sacar al resultado fuera del conjunto.</p>
+            </div>
+            <div class="flip-back">
+              <p>Si u y v pertenecen a W, entonces u + v también debe pertenecer a W.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <h3>Vector cero</h3>
+              <p>Es el elemento neutro de la suma vectorial.</p>
+            </div>
+            <div class="flip-back">
+              <p>Todo subespacio vectorial debe contener obligatoriamente al vector cero.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <h3>Combinación lineal</h3>
+              <p>Se forma multiplicando vectores por escalares y sumando resultados.</p>
+            </div>
+            <div class="flip-back">
+              <p>Ejemplo: αu + βv permite generar nuevos vectores a partir de u y v.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <h3>Base</h3>
+              <p>Conjunto de vectores que genera un espacio sin depender linealmente entre sí.</p>
+            </div>
+            <div class="flip-back">
+              <p>Una base debe ser generadora y linealmente independiente.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="simulador" class="section reveal simulator-section">
+      <div class="section-title">
+        <p class="eyebrow">Simulación dinámica</p>
+        <h2>Combinación lineal: αu + βv</h2>
+        <p>Mueve los controles y observa cómo cambia el vector resultante dentro del plano.</p>
+      </div>
+
+      <div class="sim-layout">
+        <canvas id="vectorCanvas" width="620" height="420"></canvas>
+
+        <div class="controls glass-card">
+          <label>α: <span id="alphaValue">1</span></label>
+          <input type="range" id="alpha" min="-4" max="4" step="0.1" value="1">
+
+          <label>β: <span id="betaValue">1</span></label>
+          <input type="range" id="beta" min="-4" max="4" step="0.1" value="1">
+
+          <div class="formula" id="formulaBox">w = 1u + 1v</div>
+
+          <button class="btn primary small" id="randomBtn">Generar otra combinación</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="ejercicios" class="section reveal">
+      <div class="section-title center">
+        <p class="eyebrow">5 ejercicios propuestos</p>
+        <h2>Practica y revela la respuesta</h2>
+      </div>
+
+      <div class="exercise-grid">
+        <article class="exercise glass-card">
+          <h3>1</h3>
+          <p>¿W = {(x, y) ∈ R² : y = 2x} es subespacio?</p>
+          <button onclick="toggleAnswer(this)">Ver respuesta</button>
+          <p class="answer">
+            Sí. Es una recta que pasa por el origen, contiene al vector cero y es cerrada bajo suma
+            y producto por escalar.
+          </p>
+        </article>
+
+        <article class="exercise glass-card">
+          <h3>2</h3>
+          <p>¿W = {(x, y) ∈ R² : y = 2x + 1} es subespacio?</p>
+          <button onclick="toggleAnswer(this)">Ver respuesta</button>
+          <p class="answer">
+            No. No contiene al vector cero, porque si x = 0, entonces y = 1.
+          </p>
+        </article>
+
+        <article class="exercise glass-card">
+          <h3>3</h3>
+          <p>Calcula 3(1,2) - 2(4,-1).</p>
+          <button onclick="toggleAnswer(this)">Ver respuesta</button>
+          <p class="answer">
+            3(1,2) = (3,6) y 2(4,-1) = (8,-2). Entonces (3,6)-(8,-2)=(-5,8).
+          </p>
+        </article>
+
+        <article class="exercise glass-card">
+          <h3>4</h3>
+          <p>¿Los vectores (1,0) y (0,1) generan R²?</p>
+          <button onclick="toggleAnswer(this)">Ver respuesta</button>
+          <p class="answer">
+            Sí. Cualquier vector (a,b) puede escribirse como a(1,0)+b(0,1).
+          </p>
+        </article>
+
+        <article class="exercise glass-card">
+          <h3>5</h3>
+          <p>¿El conjunto {(0,0,0)} es subespacio de R³?</p>
+          <button onclick="toggleAnswer(this)">Ver respuesta</button>
+          <p class="answer">
+            Sí. Es el subespacio cero: contiene al cero y es cerrado bajo las operaciones.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="quiz1" class="section reveal quiz-section">
+      <div class="section-title">
+        <p class="eyebrow">Quiz interno 1</p>
+        <h2>Reconociendo subespacios</h2>
+      </div>
+      <div class="quiz glass-block" data-quiz="1"></div>
+    </section>
+
+    <section id="quiz2" class="section reveal quiz-section">
+      <div class="section-title">
+        <p class="eyebrow">Quiz interno 2</p>
+        <h2>Operaciones y combinaciones lineales</h2>
+      </div>
+      <div class="quiz glass-block" data-quiz="2"></div>
+    </section>
+
+    <section id="practica" class="section reveal">
+      <div class="section-title center">
+        <p class="eyebrow">Práctica externa</p>
+        <h2>Refuerza tus conocimientos con dos quizzes interactivos</h2>
+      </div>
+
+      <div class="summary-grid">
+        <article class="glass-card">
+          <h3>Quiz práctico 1</h3>
+          <p>
+            Practica conceptos básicos de espacios vectoriales, vector cero, cierre bajo suma
+            y multiplicación escalar.
+          </p>
+          <a 
+            class="btn primary" 
+            href="https://wayground.com/join?gc=922285&source=liveDashboard" 
+            target="_blank" 
+            rel="noopener noreferrer">
+            Practicar aquí
+          </a>
+        </article>
+
+        <article class="glass-card">
+          <h3>Quiz práctico 2</h3>
+          <p>
+            Refuerza subespacios vectoriales, combinaciones lineales, base, dimensión
+            e independencia lineal.
+          </p>
+          <a 
+            class="btn ghost" 
+            href="https://www.gimkit.com/join?gc=35441" 
+            target="_blank" 
+            rel="noopener noreferrer">
+            Ir al segundo quiz
+          </a>
+        </article>
+
+        <article class="glass-card">
+          <h3>Indicaciones</h3>
+          <p>
+            Ingresa a cada práctica, responde las preguntas y revisa tus resultados para reforzar
+            los conceptos trabajados en el recurso.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="video" class="section reveal video-section">
+      <div class="section-title center">
+        <p class="eyebrow">Video explicativo</p>
+        <h2>Aprende con apoyo audiovisual</h2>
+      </div>
+
+      <div class="video-frame youtube-frame">
+        <div class="youtube-card">
+          <div class="play-circle">▶</div>
+          <h3>Video explicativo</h3>
+          <p>
+            Revisa el video de apoyo sobre espacios vectoriales y subespacios para reforzar
+            la explicación del recurso interactivo.
+          </p>
+
+          <a 
+            class="btn primary"
+            href="https://youtu.be/RqtqdFyNI8k?si=fTRIL-Rt1_1rnpW9"
+            target="_blank"
+            rel="noopener noreferrer">
+            Ver video aquí
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>VectorLab 3D · Recurso interactivo creado con apoyo de IA · Álgebra Lineal</p>
+
+      <div class="authors">
+        <h3>Elaborado por:</h3>
+        <p>Hallie ALtamirano</p>
+        <p>Antonio Montesdeoca</p>
+        <p>Johnder Nuñez</p>
+        <p>Christopher Paredes</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
